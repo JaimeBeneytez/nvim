@@ -1,0 +1,24 @@
+#############################################################
+#
+# Angular Snippets 
+#
+#############################################################
+
+snippet I Angular @Input
+	@Input($1) $2: $3;
+	$0
+
+
+snippet O Angular @Output
+	@Output($1) $2:EventEmitter<$3> = new EventEmitter();
+	$0
+
+snippet ngOnChanges 
+	public ngOnChanges(changes: SimpleChanges): void {
+		$0
+	}
+
+snippet ngOnInit
+	public ngOnInit(): void {
+		$0
+	}
