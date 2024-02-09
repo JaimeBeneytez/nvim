@@ -21,7 +21,7 @@ km.set('n', '<leader>Q', ':qall!<CR>', { desc = 'Close all buffers' })
 km.set('n', '<leader>e', ':e<CR>', { desc = 'Reload buffer' })
 
 km.set('n', '<leader>c', 'yaw :%s/<C-R><C-W>/', { desc = 'Substitute word under cursor' })
-km.set('n', '<leader>E', ':e <C-R>=expand(\'%:p:h\') . ' / '<CR>', { desc = 'Explore' })
+km.set('n', '<leader>E', ":e <C-R>=expand('%:p:h') . ' / '<CR>", { desc = 'Explore' })
 
 km.set('n', '<leader>o', ':!open %:p:h<CR>', { desc = 'Open finder in folder', silent = true })
 
@@ -49,10 +49,10 @@ km.set('v', '<right>', '>gv', { desc = 'Use left/right to indent' })
 km.set('n', '<up>  ', ':m -2<cr>', { desc = 'Use up/down to move lines/blocks' })
 km.set('n', '<down>', ':m +1<cr>', { desc = 'Use up/down to move lines/blocks' })
 km.set('v', '<up>  ', ':m -2<cr>gv', { desc = 'Use up/down to move lines/blocks' })
-km.set('v', '<down>', ':m \'>+1<cr>gv', { desc = 'Use up/down to move lines/blocks' })
+km.set('v', '<down>', ":m '>+1<cr>gv", { desc = 'Use up/down to move lines/blocks' })
 
 -- Use shift+arrow keys to resize splits
-km.set('n <s-up>    : resize -2<cr>', { desc = 'Use shift+arrow keys to resize splits' })
-km.set('n <s-down>  : resize +2<cr>', { desc = 'Use shift+arrow keys to resize splits' })
-km.set('n <s-right> : vertical resize -1<cr>', { desc = 'Use shift+arrow keys to resize splits' })
-km.set('n <s-left>  : vertical resize +2<cr>n', { desc = 'Use shift+arrow keys to resize splits' })
+km.set('n', '<s-up>   ', ':resize -2<cr>', { desc = 'Use shift+arrow keys to resize splits' })
+km.set('n', '<s-down> ', ':resize +2<cr>', { desc = 'Use shift+arrow keys to resize splits' })
+km.set('n', '<s-right>', ':vertical resize -1<cr>', { desc = 'Use shift+arrow keys to resize splits' })
+km.set('n', '<s-left> ', ':vertical resize +2<cr>n', { desc = 'Use shift+arrow keys to resize splits' })
