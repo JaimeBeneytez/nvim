@@ -11,6 +11,12 @@ return {
 
 		local keymap = vim.keymap -- for conciseness
 
+		vim.diagnostic.config {
+			virtual_text = false,
+			signs = true,
+			underline = false,
+		}
+
 		local opts = { noremap = true, silent = true }
 		local on_attach = function(client, bufnr)
 			opts.buffer = bufnr
@@ -60,6 +66,7 @@ return {
 			opts.desc = "Restart LSP"
 			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 		end
+
 
 		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()

@@ -7,28 +7,24 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				javascript      = { "eslint" },
-				typescript      = { "eslint" },
-				javascriptreact = { "eslint" },
-				typescriptreact = { "eslint" },
-				svelte          = { "eslint" },
-				css             = { "eslint" },
-				html            = { "eslint" },
-				json            = { "eslint" },
-				yaml            = { "eslint" },
-				markdown        = { "eslint" },
-				graphql         = { "eslint" },
+				javascript      = { "eslint-lsp" },
+				typescript      = { "eslint-lsp" },
+				javascriptreact = { "eslint-lsp" },
+				typescriptreact = { "eslint-lsp" },
+				svelte          = { "eslint-lsp" },
+				css             = { "eslint-lsp" },
+				html            = { "eslint-lsp" },
+				json            = { "prettier" },
+				scss            = { "some-sass-language-server" },
+				yaml            = { "eslint-lsp" },
+				markdown        = { "eslint-lsp" },
+				graphql         = { "eslint-lsp" },
 				lua             = { "stylua" },
 				python          = { "isort", "black" },
-			},
-			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
-			},
+			}
 		})
 
-		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+		vim.keymap.set({ "n", "v" }, "<leader>fmt", function()
 			conform.format({
 				lsp_fallback = true,
 				async        = false,
