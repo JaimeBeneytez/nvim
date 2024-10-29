@@ -14,7 +14,7 @@ return {
 				svelte          = { "eslint-lsp" },
 				css             = { "eslint-lsp" },
 				html            = { "eslint-lsp" },
-				json            = { "prettier" },
+				json            = { "eslint-ls" },
 				scss            = { "some-sass-language-server" },
 				yaml            = { "eslint-lsp" },
 				markdown        = { "eslint-lsp" },
