@@ -7,8 +7,8 @@ o.ruler = true                     -- show cursos position
 o.encoding = "utf8"                -- encooding
 o.scrolloff = 10                   -- scrollpadding
 o.wrap = false                     -- avoid line wrapping
-o.tabstop = 4                      -- tab spaces
-o.shiftwidth = 4                   -- indent inside block
+o.tabstop = 2                      -- tab spaces
+o.shiftwidth = 2                   -- indent inside block
 o.backspace = [[indent,eol,start]] -- backspace throughh everythiing
 o.hlsearch = true                  -- search:  highlight search results
 o.incsearch = true                 -- search:  incremental search
@@ -35,4 +35,12 @@ o.wildignore:append({              -- ignore files
 	"*/log/*",
 	"*.log",
 	"**/node_modules/**"
+})
+
+vim.diagnostic.config({
+  virtual_text = false, -- Disable inline messages
+  signs = true,         -- Keep signs in the gutter
+  underline = true,     -- Keep underline for diagnostics
+  update_in_insert = false, -- Update diagnostics only on save or Normal mode
+  severity_sort = true,  -- Sort diagnostics by severity
 })

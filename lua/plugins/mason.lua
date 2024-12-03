@@ -16,6 +16,9 @@ return {
 					package_uninstalled = "✗",
 				},
 			},
+			handlers = {
+					["tsserver"] = function() end, -- handled by `typescript_tools.lua`
+			}, 
 		})
 
 	end,

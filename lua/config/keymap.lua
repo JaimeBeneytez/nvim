@@ -7,6 +7,15 @@ g.mapleader = ' '
 -- set escape in touchbar macbooks
 km.set({ 'i', 'v', 'n', 's', 'x' }, '§', '<esc>', { desc = 'Escape in touchbar macbooks' })
 
+-- close
+km.set('n', '<leader>q', ':q', { desc = 'Close file' })
+km.set('n', '<leader>Q', ':qall!', { desc = 'Close file force' })
+
+km.set('n', '<leader>w', ':w',  { desc = 'Write file' })
+km.set('n', '<leader>W', ':w!', { desc = 'Write file force' })
+
+km.set('n', '<leader>wq', ':wq',  { desc = 'Write and close file' })
+
 -- clear search highlights
 km.set('n', '<leader>nh', ':nohl<CR>', { desc = 'Clear search highlights' })
 
@@ -56,3 +65,14 @@ km.set('n', '<s-up>   ', ':resize -2<cr>', { desc = 'Use shift+arrow keys to res
 km.set('n', '<s-down> ', ':resize +2<cr>', { desc = 'Use shift+arrow keys to resize splits' })
 km.set('n', '<s-right>', ':vertical resize -1<cr>', { desc = 'Use shift+arrow keys to resize splits' })
 km.set('n', '<s-left> ', ':vertical resize +2<cr>n', { desc = 'Use shift+arrow keys to resize splits' })
+
+-- Diagnostics
+km.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Show diagnostics at cursor" })
+
+
+
+
+
+
+
+

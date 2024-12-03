@@ -13,10 +13,11 @@ return {
 
 		telescope.setup({
 			defaults = {
+				layout_strategy = 'flex',
 				layout_config = {
 					prompt_position = 'bottom',
-					preview_width = 0.6,
-					preview_height = 0.6,
+					width = 0.6,
+					height = 0.6,
 				},
 				path_display = { 'truncate' },
 				mappings = {
