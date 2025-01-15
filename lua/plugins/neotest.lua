@@ -1,0 +1,44 @@
+return {}
+-- return {
+--   "nvim-neotest/neotest",
+--   dependencies = {
+--     "nvim-neotest/nvim-nio",
+--     "nvim-lua/plenary.nvim",
+--     "antoinemadec/FixCursorHold.nvim",
+--     "nvim-treesitter/nvim-treesitter",
+--     "haydenmeade/neotest-jest", -- Jest adapter
+--   },
+--   config = function()
+--     local neotest = require("neotest")
+--
+--     -- Define Jest adapter configuration with a global Jest and fixed config path
+--     local jest_adapter = require("neotest-jest")({
+--       -- Use global Jest
+--       jestCommand = "jest",
+--
+--       -- Manually specify the Jest config file path
+--       jestConfigFile = "/Users/jaime/work/squeaky/github/EOS/projects/services/ppc/jest.config.js",
+--
+--       -- Optional environment variables
+--       env = { CI = true },
+--
+--       -- Use the project root as the working directory
+--       cwd = function(path)
+--         return vim.fn.fnamemodify("/Users/jaime/work/squeaky/github/EOS/projects/services/ppc", ":p")
+--       end,
+--     })
+--
+--     -- Setup neotest with the Jest adapter
+--     neotest.setup({
+--       adapters = { jest_adapter },
+--     })
+--
+--     -- Keybindings for Neotest
+--     local km = vim.keymap
+--     km.set("n", "<leader>t", neotest.run.run, { desc = "Run tests" })
+--     km.set("n", "<leader>tf", function()
+--       neotest.run.run(vim.fn.expand("%"))
+--     end, { desc = "Run tests in current file" })
+--     km.set("n", "<leader>to", neotest.output.open, { desc = "Open test output" })
+--   end,
+-- }
