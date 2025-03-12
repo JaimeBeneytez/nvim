@@ -88,6 +88,30 @@ return {
 			autojump = true,
 			---@type string | fun(): any
 			list_opener = "copen",
+		},
+		context = {
+			enabled = true, -- Enable context gathering
+			include_git_diff = true, -- Include git diff information
+			include_project_root = true, -- Include project root information
+			max_lines = 100, -- Maximum number of lines to include in context
+			file_types = {
+				-- Define which file types to include in context
+				"lua",
+				"python",
+				"javascript",
+				"typescript",
+				"rust",
+				"go",
+				"cpp",
+				"c",
+				"java",
+			},
+			exclude_files = {
+				-- Patterns for files to exclude from context
+				"%.git/.*",
+				"node_modules/.*",
+				"%.env.*",
+			},
 		}
 		-- add any opts here
 	},

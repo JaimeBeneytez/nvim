@@ -33,7 +33,7 @@ return {
 					'.git/.*'
 				}
 
-			},
+			}
 		})
 
 		telescope.load_extension('fzf')
