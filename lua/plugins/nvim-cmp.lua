@@ -9,13 +9,13 @@ return {
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim",   -- vs-code like pictograms
+		'rcarriga/cmp-dap', -- dap
 	},
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
 		local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-
 
 		cmp.setup({
 			completion = {
@@ -58,6 +58,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" }, -- snippets
+        { name = "dap" }, -- debug adapter-protocol
 			  { name = "codeium" },
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths

@@ -3,26 +3,23 @@ return {
 	dependencies = {
 		'rcarriga/nvim-dap-ui',
 		'theHamsta/nvim-dap-virtual-text',
-		'rcarriga/cmp-dap',
-		'nvim-cmp'
 	},
 	config = function()
 		local dap = require('dap')
 		local dapui = require('dapui')
-		local cmp = require('cmp')
-
-		cmp.setup({
-      sources = {
-        { name = "dap" }
-      }
-    })
 
 		-- Initialize DAP UI with custom config
 		dapui.setup({
 			layouts = {
 				{
 					elements = {
-						{ id = "console", size = 0.5 },
+						{ id = "console", size = 1 },
+					},
+					position = "right",
+					size = 120
+				}, {
+					elements = {
+						{ id = "watches", size = 0.5 },
 						{ id = "scopes", size = 0.5 }
 					},
 					position = "bottom",
@@ -121,6 +118,7 @@ return {
 		vim.keymap.set('n', '<D-b>', function() require('dap').toggle_breakpoint() end)
 		vim.keymap.set('n', '<Leader>db', function() open_modal('breakpoints') end)
 		vim.keymap.set('n', '<Leader>dt', function() open_modal('stacks') end)
+		vim.keymap.set('n', '<Leader>dr', function() open_modal('repl') end)
 		vim.keymap.set('n', '<Leader>dw', function() open_modal('watches') end)
 		vim.keymap.set('n', '<Leader>dx', function() open_modal('expressions') end)
 		vim.keymap.set('n', '<Leader>de', function() dapui.eval() end )
