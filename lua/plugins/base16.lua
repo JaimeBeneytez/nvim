@@ -27,7 +27,7 @@ return {
 		km.set('n', '<leader>light', ':colorscheme base16-solarized-light<cr>', { silent = true })
 
 		-- vim.cmd([[hi VertSplit guifg=#002b36]])
-		set_hl(0, 'WinSeparator', { fg = grey })
+		set_hl(0, 'WinSeparator', { fg = '#002b36', bg = '#002b36' })
 		set_hl(0, 'LineNr', { fg = grey })
 		set_hl(0, 'CursorLine', { bg = '#002b36' })
 		set_hl(0, 'CursorLineNr', { fg = '#93a1a1', bold = true })

@@ -126,9 +126,9 @@ return {
 		vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end)
 		vim.keymap.set('n', '<Leader>du', function() dapui.toggle() end)
 		-- Add visual indicators for breakpoints
-		vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
-		vim.fn.sign_define('DapBreakpointCondition', {text='🔵', texthl='', linehl='', numhl=''})
-		vim.fn.sign_define('DapLogPoint', {text='📝', texthl='', linehl='', numhl=''})
+		vim.fn.sign_define('DapBreakpoint', {text='•', texthl='', linehl='', numhl=''})
+		vim.fn.sign_define('DapBreakpointCondition', {text='•', texthl='', linehl='', numhl=''})
+		vim.fn.sign_define('DapLogPoint', {text='£', texthl='', linehl='', numhl=''})
 
 		-- Create debug command
 		vim.api.nvim_create_user_command('Debug', function(opts)

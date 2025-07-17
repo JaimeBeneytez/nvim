@@ -28,6 +28,7 @@ return {
 		km.set('n' , '<leader>ai' , ':TSToolsAddMissingImports<CR>'    , { desc = 'TS add missing imports' })
 		km.set('n' , '<leader>fa' , ':TSToolsFixAll<CR>'               , { desc = 'TS fix all' })
 		km.set('n' , '<leader>ru' , ':TSToolsRemoveUnusedImports<CR>'  , { desc = 'TS remove unused members' })
+		km.set('n' , '<leader>rn' , vim.lsp.buf.rename, { desc = 'Rename symbol' })
 		km.set('n', 'gd', function()
 			local ts_tools = require("typescript-tools")
 			if ts_tools then

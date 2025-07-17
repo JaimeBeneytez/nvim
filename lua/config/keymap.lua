@@ -67,3 +67,4 @@ km.set("n", "<s-left> ", ":vertical resize +2<cr>n", { desc = "Use shift+arrow k
 
 -- Diagnostics
 km.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostics at cursor" })
+-- Moved diagnostic navigation and auto-fix to lint.lua

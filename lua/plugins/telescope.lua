@@ -9,15 +9,15 @@ return {
 	},
 	config = function()
 		local telescope = require('telescope')
+		local telescope_builtin = require('telescope.builtin')
 		local actions = require('telescope.actions')
 
 		telescope.setup({
 			defaults = {
-				layout_strategy = 'flex',
+				hidden = true,
+				layout_strategy = 'horizontal',
 				layout_config = {
 					prompt_position = 'bottom',
-					width = 0.6,
-					height = 0.6,
 				},
 				path_display = { 'truncate' },
 				mappings = {
@@ -28,11 +28,54 @@ return {
 					},
 				},
 				file_ignore_patterns = {
-					'node%_modules/.*',
+					'%.nx/.*',
+					'%.git/.*',
+					'%.data/.*',
+					'%.cursor/.*',
+					'%.vscode/.*',
 					'dist/.*',
-					'.git/.*'
+					'node_modules/.*',
+					'tmp/.*',
+					'package%-lock%.json'
+				},
+				vimgrep_arguments = {
+					'rg',
+					'--color=never',
+					'--no-heading',
+					'--with-filename',
+					'--line-number',
+					'--column',
+					'--smart-case',
+					'--hidden',
+					'--glob=!.git/',
+					'--glob=!.nx/',
+					'--glob=!.data/',
+					'--glob=!.cursor/',
+					'--glob=!.vscode/',
+					'--glob=!dist/',
+					'--glob=!node_modules/',
+					'--glob=!tmp/',
+					'--glob=!package-lock.json'
 				}
-
+			},
+			pickers = {
+				find_files = {
+					hidden = true
+				},
+				live_grep = {
+					hidden = true
+				},
+				grep_string = {
+					hidden = true
+				}
+			},
+			extensions = {
+				fzf = {
+					fuzzy = true,
+					override_generic_sorter = true,
+					override_file_sorter = true,
+					case_mode = "smart_case",
+				}
 			}
 		})
 
@@ -52,13 +95,14 @@ return {
 			float = { border = _border }
 		}
 
+
 		-- Keymaps
 		local keymap = vim.keymap
-		keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { desc = 'Fuzzy find files in cwd' })
-		keymap.set('n', '<leader>fb', '<cmd>Telescope find_files<cr>', { desc = 'Fuzzy find files in cwd' })
-		keymap.set('n', '<leader>fr', '<cmd>Telescope oldfiles<cr>', { desc = 'Fuzzy find recent files' })
-		keymap.set('n', '<leader>fs', '<cmd>Telescope live_grep<cr>', { desc = 'Find string in cwd' })
-		keymap.set('n', '<leader>fc', '<cmd>Telescope grep_string<cr>', { desc = 'Find string under cursor in cwd' })
+		keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = 'Fuzzy find files in cwd' })
+		keymap.set('n', '<leader>fb', telescope_builtin.buffers, { desc = 'Fuzzy find buffers' })
+		keymap.set('n', '<leader>fs', telescope_builtin.live_grep, { desc = 'Find string in cwd' })
+		keymap.set('n', '<leader>fc', telescope_builtin.grep_string, { desc = 'Find string under cursor in cwd' })
 		keymap.set('n', '<leader>fw', 'yaw :Ggrep <C-R><C-W><cr><cr> :copen <cr>', { desc = 'Grep word under cursor' }) --@TODO: Move to telescope
+		keymap.set('n', '<leader>fr', telescope_builtin.lsp_references, { desc = 'Fuzzy find references' }) 
 	end,
 }

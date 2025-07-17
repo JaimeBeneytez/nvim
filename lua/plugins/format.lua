@@ -43,6 +43,7 @@ return {
 				css             = { "eslint-lsp"                } ,
 				html            = { "eslint-lsp"                } ,
 				json            = { "jq"                        } ,
+				jsonc           = { "jq"                        } ,
 				scss            = { "some-sass-language-server" } ,
 				yaml            = { "eslint-lsp"                } ,
 				markdown        = { "eslint-lsp"                } ,
@@ -50,22 +51,27 @@ return {
 				lua             = { "stylua"                    } ,
 				python          = { "isort", "black"            } ,
 			},
+			formatters = {
+				jq = {
+					cmd = "jq", -- The command to run
+					args = { "-S", "--indent", tostring(indent_size) }, -- Sort keys (-S) for consistent output
+					stdin = true, -- Use stdin for input
+					success_exit_codes = { 0, 1, 2, 3, 4, 5 }, -- Allow jq to exit with error codes but still use its partial output
+					env = { LANG = "en_US.UTF-8" }, -- Ensure consistent encoding
+					ignore_stderr = true, -- Don't show stderr messages which would be parse errors
+					ignore_exit_code = true, -- Continue even if jq reports errors
+				},
+				-- Add prettier as a fallback formatter for JSON
+				prettier = {
+					cmd = "prettier",
+					args = { "--parser", "json", "--tab-width", tostring(indent_size) },
+					stdin = true,
+				},
+			},
 			stop_after_first = true, -- New option to stop after the first successful formatter
 		})
 
 		vim.keymap.set({ "n", "v" }, "<leader>fmt", function()
-
-			conform.setup({
-				-- Define formatters with options
-				formatters = {
-					jq = {
-						cmd = "jq", -- The command to run
-						args = { "--indent", tostring(find_editorconfig_indent()) }, -- Custom arguments for jq
-						stdin = true, -- Use stdin for input
-					},
-				}
-			})
-
 			conform.format({
 				lsp_fallback = true,
 				async        = false,
